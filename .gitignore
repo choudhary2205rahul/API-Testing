@@ -1,0 +1,5 @@
+.idea
+target
+.dcignore
+.DS_Store
+allure-results
