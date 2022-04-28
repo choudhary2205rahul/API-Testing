@@ -43,7 +43,7 @@ public class DemoUtils {
 
     public void checkTimeout() throws InterruptedException {
         System.out.println("Going to sleep for 2 sec");
-        Thread.sleep(2000);
+        Thread.sleep(20);
         System.out.println("Sleeping Over");
     }
 }

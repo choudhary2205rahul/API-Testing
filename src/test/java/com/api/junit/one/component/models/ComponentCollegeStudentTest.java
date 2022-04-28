@@ -37,13 +37,13 @@ class ComponentCollegeStudentTest {
                 new ComponentStudentGrades(new ArrayList<>(Arrays.asList(100.0,85.0,76.50,91.75))));
     }
 
-//    @Test
-//    void invokePrivateFeild() {
-//        assertEquals(1, ReflectionTestUtils.getField(collegeStudent, "id"));
-//    }
-//
-//    @Test
-//    void invokePrivateMethod() {
-//        assertEquals("Rahul 1", ReflectionTestUtils.invokeMethod(collegeStudent, "getFirstNameAndId"));
-//    }
+    @Test
+    void invokePrivateFeild() {
+        assertEquals(1, ReflectionTestUtils.getField(collegeStudent, "id"));
+    }
+
+    @Test
+    void invokePrivateMethod() {
+        assertEquals("Rahul 1", ReflectionTestUtils.invokeMethod(collegeStudent, "getFirstNameAndId"));
+    }
 }
