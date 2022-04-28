@@ -62,7 +62,7 @@ pipeline {
                 withMaven(maven: 'maven') {
                     snykSecurity(
                             snykInstallation: 'snyk',
-                            snykTokenId: 'snyk_token',
+                            snykTokenId: 'snyk_token_local',
                             severity: 'critical',
                             failOnIssues: false,
                             failOnError: true,
