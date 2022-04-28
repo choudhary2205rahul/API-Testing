@@ -74,12 +74,14 @@ pipeline {
 
         stage('InfluxDB Report') {
             steps {
-                if (currentBuild.currentResult == 'UNSTABLE') {
-                    currentBuild.result = "UNSTABLE"
-                } else {
-                    currentBuild.result = "SUCCESS"
+                script {
+                    if (currentBuild.currentResult == 'UNSTABLE') {
+                        currentBuild.result = "UNSTABLE"
+                    } else {
+                        currentBuild.result = "SUCCESS"
+                    }
+                    step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
                 }
-                step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
             }
         }
 
