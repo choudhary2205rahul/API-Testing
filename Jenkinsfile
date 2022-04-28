@@ -9,6 +9,13 @@ pipeline {
 
     stages {
 
+        stage('Maven Version') {
+            steps {
+                execMaven('--help')
+                execMaven()
+            }
+        }
+
         stage('cleanup old artifacts') {
             steps {
                 dir('target') {
