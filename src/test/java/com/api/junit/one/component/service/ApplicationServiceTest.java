@@ -51,79 +51,79 @@ class ApplicationServiceTest {
     void tearDown() {
     }
 
-    @Test
-    void addGradeResultsForSingleClass() {
-
-        // when
-        when(applicationDao.addGradeResultsForSingleClass(studentGrades.getMathGradeResults()))
-                .thenReturn(100.00);
-
-        assertEquals(100,
-                applicationService.addGradeResultsForSingleClass(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        verify(applicationDao,
-                times(1)).addGradeResultsForSingleClass(studentGrades.getMathGradeResults());
-    }
-
-    @Test
-    void findGradePointAverage() {
-        // when
-        when(applicationDao.findGradePointAverage(studentGrades.getMathGradeResults()))
-                .thenReturn(88.31);
-
-        assertEquals(88.31,
-                applicationService.findGradePointAverage(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        verify(applicationDao,
-                times(1)).findGradePointAverage(studentGrades.getMathGradeResults());
-
-    }
-
-    @Test
-    void checkNull() {
-        // when
-        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
-                .thenReturn(true);
-
-        assertNotNull(applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        verify(applicationDao,
-                times(1)).checkNull(studentGrades.getMathGradeResults());
-
-    }
-
-    @Test
-    void checkException() {
-        // when
-        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
-                .thenThrow(new RuntimeException());
-
-        assertThrows(RuntimeException.class, () ->
-                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        verify(applicationDao,
-                times(1)).checkNull(studentGrades.getMathGradeResults());
-
-    }
-
-    @Test
-    void checkExceptionMultipleStubbing() {
-        // when
-        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
-                .thenThrow(new RuntimeException())
-                .thenReturn("Hey - Don't throw exception now");
-
-
-        assertThrows(RuntimeException.class, () ->
-                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        assertEquals("Hey - Don't throw exception now",
-                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
-
-        verify(applicationDao,
-                times(2)).checkNull(studentGrades.getMathGradeResults());
-
-    }
+//    @Test
+//    void addGradeResultsForSingleClass() {
+//
+//        // when
+//        when(applicationDao.addGradeResultsForSingleClass(studentGrades.getMathGradeResults()))
+//                .thenReturn(100.00);
+//
+//        assertEquals(100,
+//                applicationService.addGradeResultsForSingleClass(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        verify(applicationDao,
+//                times(1)).addGradeResultsForSingleClass(studentGrades.getMathGradeResults());
+//    }
+//
+//    @Test
+//    void findGradePointAverage() {
+//        // when
+//        when(applicationDao.findGradePointAverage(studentGrades.getMathGradeResults()))
+//                .thenReturn(88.31);
+//
+//        assertEquals(88.31,
+//                applicationService.findGradePointAverage(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        verify(applicationDao,
+//                times(1)).findGradePointAverage(studentGrades.getMathGradeResults());
+//
+//    }
+//
+//    @Test
+//    void checkNull() {
+//        // when
+//        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
+//                .thenReturn(true);
+//
+//        assertNotNull(applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        verify(applicationDao,
+//                times(1)).checkNull(studentGrades.getMathGradeResults());
+//
+//    }
+//
+//    @Test
+//    void checkException() {
+//        // when
+//        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
+//                .thenThrow(new RuntimeException());
+//
+//        assertThrows(RuntimeException.class, () ->
+//                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        verify(applicationDao,
+//                times(1)).checkNull(studentGrades.getMathGradeResults());
+//
+//    }
+//
+//    @Test
+//    void checkExceptionMultipleStubbing() {
+//        // when
+//        when(applicationDao.checkNull(studentGrades.getMathGradeResults()))
+//                .thenThrow(new RuntimeException())
+//                .thenReturn("Hey - Don't throw exception now");
+//
+//
+//        assertThrows(RuntimeException.class, () ->
+//                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        assertEquals("Hey - Don't throw exception now",
+//                applicationService.checkNull(collegeStudent.getStudentGrades().getMathGradeResults()));
+//
+//        verify(applicationDao,
+//                times(2)).checkNull(studentGrades.getMathGradeResults());
+//
+//    }
 
 
 }
