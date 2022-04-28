@@ -54,16 +54,21 @@ pipeline {
                         sh 'mvn sonar:sonar -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
                     }
                 }
-            }
-        }
 
-        stage("Quality Gate Status") {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true
+                def qualitygate = waitForQualityGate()
+                if (qualitygate.status != "OK") {
+                    error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
                 }
             }
         }
+
+//        stage("Quality Gate Status") {
+//            steps {
+//                timeout(time: 1, unit: 'HOURS') {
+//                    waitForQualityGate abortPipeline: true
+//                }
+//            }
+//        }
 
         stage('Snyk Scan') {
             steps {
