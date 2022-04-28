@@ -36,13 +36,13 @@ pipeline {
 
         stage('HTML Publish') {
             steps {
-                publishHTML (target : [allowMissing: false,
-                                       alwaysLinkToLastBuild: true,
-                                       keepAll: true,
-                                       reportDir: 'target/site/jacoco',
-                                       reportFiles: 'index.html',
-                                       reportName: 'Test Report',
-                                       reportTitles: 'Testing Report'])
+                publishHTML(target: [allowMissing         : false,
+                                     alwaysLinkToLastBuild: true,
+                                     keepAll              : true,
+                                     reportDir            : 'target/site/jacoco',
+                                     reportFiles          : 'index.html',
+                                     reportName           : 'Test Report',
+                                     reportTitles         : 'Testing Report'])
 
             }
         }
@@ -57,15 +57,30 @@ pipeline {
             }
         }
 
+        stage('Snyk Scan') {
+            steps {
+                withMaven(maven: 'maven') {
+                    snykSecurity(
+                            snykInstallation: 'snyk',
+                            snykTokenId: 'snyk_token',
+                            severity: 'critical',
+                            failOnIssues: false,
+                            failOnError: true,
+                            additionalArguments: '--debug --all-projects --target-reference=' + 'main'
+                    )
+                }
+            }
+        }
+
         stage('Allure Report') {
             steps {
                 script {
                     allure([
                             includeProperties: false,
-                            jdk: '',
-                            properties: [],
+                            jdk              : '',
+                            properties       : [],
                             reportBuildPolicy: 'ALWAYS',
-                            results: [[path: 'target/allure-results']]
+                            results          : [[path: 'target/allure-results']]
                     ])
 
                 }
