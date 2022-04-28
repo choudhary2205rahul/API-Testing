@@ -1,54 +1,10 @@
-//node('AtlasX') {
-//
-//    stage('Checkout') {
-//        git branch: 'master', credentialsId: 'atlas_testing_github', url: 'https://git.swisscom.com/scm/atlasai/atlas-testing-backend.git'
-//        branches: [[name: 'refs/heads/master']]
-//    }
-//
-//    stage('Test') {
-//        withMaven(mavenSettingsConfig: 'd09f096a-5dc8-40f1-aff3-1b76c7d87bbf') {
-//            bat 'mvn clean test'
-//        }
-//    }
-//
-//    stage('Build') {
-//        withMaven(mavenSettingsConfig: 'd09f096a-5dc8-40f1-aff3-1b76c7d87bbf') {
-//            bat 'mvn clean'
-//            bat 'mvn jacoco:prepare-agent'
-//            bat 'mvn install'
-//        }
-//    }
-//
-//    stage('Sonar Scan') {
-//        withMaven(mavenSettingsConfig: 'd09f096a-5dc8-40f1-aff3-1b76c7d87bbf') {
-//            bat 'mvn sonar:sonar -Dsonar.projectKey=com.swisscom:atlas-testing-backend -Dsonar.host.url=https://eye3-sonarqube.dos.corproot.net -Dsonar.login=49289e000bb50bac108cacc9cae4be0e3ea50f38'
-//        }
-//    }
-//
-//
-//    stage('Snyk Scan') {
-//        withMaven(mavenSettingsConfig: 'd09f096a-5dc8-40f1-aff3-1b76c7d87bbf') {
-//            snykSecurity(
-//                    snykInstallation: 'snyk',
-//                    snykTokenId: '71cb741a-75bf-4c47-944a-cdbe70a95f95',
-//                    severity: 'low',
-//                    failOnIssues: false,
-//                    failOnError: false,
-//                    additionalArguments: '--debug --all-projects --target-reference=' + 'dev'
-//            )
-//        }
-//    }
-//
-//}
-
-
 pipeline {
 
     agent { label 'any' }
 
     tools {
-        jdk 'jdk'
-        maven 'maven'
+        jdk 'openjdk-11'
+        maven 'maven-3.8.5'
     }
 
     stages {
