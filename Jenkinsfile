@@ -54,17 +54,10 @@ pipeline {
                         sh 'mvn sonar:sonar -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
                     }
                 }
-
-                script {
-                    def qualitygate = waitForQualityGate()
-                    if (qualitygate.status != "OK") {
-                        error "Pipeline aborted due to quality gate coverage failure: ${qualitygate.status}"
-                    }
-                }
-
             }
         }
 
+        // This will not work for localhost, 127.0.0.1, public ip
 //        stage("Quality Gate Status") {
 //            steps {
 //                timeout(time: 1, unit: 'HOURS') {
