@@ -80,7 +80,7 @@ pipeline {
                     } else {
                         currentBuild.result = "SUCCESS"
                     }
-                    step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'grafana'])
+                    step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'sonarqube_metrics'])
                 }
             }
         }
