@@ -29,7 +29,7 @@ pipeline {
         stage('Build') {
             steps {
                 withMaven(maven: 'maven') {
-                    sh 'mvn clean jacoco:prepare-agent install'
+                    sh 'mvn clean install'
                 }
             }
         }
