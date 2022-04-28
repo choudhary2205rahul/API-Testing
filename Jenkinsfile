@@ -4,7 +4,7 @@ pipeline {
 
     tools {
         jdk 'openjdk-11'
-        maven 'maven-3.8.5'
+        maven 'maven'
     }
 
     stages {
@@ -19,7 +19,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                withMaven(maven: 'maven-3.8.5') {
+                withMaven(maven: 'maven') {
                     sh 'mvn clean test'
                 }
 
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                withMaven(maven: 'maven-3.8.5') {
+                withMaven(maven: 'maven') {
                     sh 'mvn clean jacoco:prepare-agent install'
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
         stage('Sonar Scan') {
             steps {
                 withSonarQubeEnv('Atlas_Testing_Sonarqube') {
-                    withMaven(maven: 'maven-3.8.5') {
+                    withMaven(maven: 'maven') {
                         sh 'mvn sonar:sonar -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
                     }
                 }
