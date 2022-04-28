@@ -60,7 +60,7 @@ pipeline {
         stage("Quality Gate Status") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate webhookSecretId: 'sonarqube_local'
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
