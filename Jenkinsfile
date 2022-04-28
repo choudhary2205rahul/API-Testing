@@ -3,18 +3,11 @@ pipeline {
     agent any
 
     tools {
-        jdk 'openjdk-11'
+        jdk 'openjdk'
         maven 'maven'
     }
 
     stages {
-
-        stage('Maven Version') {
-            steps {
-                execMaven('--help')
-                execMaven()
-            }
-        }
 
         stage('cleanup old artifacts') {
             steps {
