@@ -49,7 +49,7 @@ pipeline {
 
         stage('Sonar Scan') {
             steps {
-                withSonarQubeEnv('Atlas_Testing_Sonarqube') {
+                withSonarQubeEnv('sonarqube_local') {
                     withMaven(maven: 'maven') {
                         sh 'mvn sonar:sonar -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
                     }
