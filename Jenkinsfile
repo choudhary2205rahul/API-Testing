@@ -66,7 +66,7 @@ pipeline {
                             severity: 'critical',
                             failOnIssues: false,
                             failOnError: true,
-                            additionalArguments: '--debug --all-projects --target-reference=' + 'main'
+                            additionalArguments: '--debug --all-projects --target-reference=' + 'dev'
                     )
                 }
             }
