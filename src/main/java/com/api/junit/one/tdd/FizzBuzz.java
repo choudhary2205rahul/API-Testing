@@ -1,5 +1,7 @@
 package com.api.junit.one.tdd;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class FizzBuzz {
     public static String compute(int i) {
 
@@ -24,7 +26,7 @@ public class FizzBuzz {
             result.append("Buzz");
         }
 
-        if (result.isEmpty()) {
+        if (StringUtils.isEmpty(result)) {
             result.append(i);
         }
 
