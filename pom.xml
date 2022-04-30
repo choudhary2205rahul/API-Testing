@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -8,9 +9,11 @@
 		<version>2.6.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.api</groupId>
 	<artifactId>junit</artifactId>
 	<version>1.0.0</version>
+
 	<name>junit</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -120,6 +123,7 @@
 			<scope>test</scope>
 		</dependency>
 
+
 	</dependencies>
 
 	<build>
@@ -203,14 +207,15 @@
 					<reportVersion>2.4.1</reportVersion>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-				</configuration>
-			</plugin>
+
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<source>${java.version}</source>-->
+<!--					<target>${java.version}</target>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 
 		</plugins>
 	</build>

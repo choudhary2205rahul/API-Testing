@@ -1,6 +1,6 @@
-package com.api.junit.repository;
+package com.api.junit.two.repository;
 
-import com.api.junit.models.HistoryGrade;
+import com.api.junit.two.models.HistoryGrade;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

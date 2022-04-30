@@ -1,6 +1,6 @@
 package com.api.junit;
 
-import com.api.junit.models.*;
+import com.api.junit.two.models.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

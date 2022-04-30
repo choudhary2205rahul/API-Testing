@@ -1,6 +1,6 @@
-package com.api.junit.repository;
+package com.api.junit.two.repository;
 
-import com.api.junit.models.MathGrade;
+import com.api.junit.two.models.MathGrade;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

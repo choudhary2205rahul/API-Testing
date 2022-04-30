@@ -1,10 +1,10 @@
-package com.api.junit.service;
+package com.api.junit.two.service;
 
-import com.api.junit.models.*;
-import com.api.junit.repository.HistoryGradesDao;
-import com.api.junit.repository.MathGradesDao;
-import com.api.junit.repository.ScienceGradesDao;
-import com.api.junit.repository.StudentDao;
+import com.api.junit.two.models.*;
+import com.api.junit.two.repository.HistoryGradesDao;
+import com.api.junit.two.repository.MathGradesDao;
+import com.api.junit.two.repository.ScienceGradesDao;
+import com.api.junit.two.repository.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -45,7 +45,7 @@ public class StudentAndGradeService {
 	private HistoryGrade historyGrade;
 
 	@Autowired
-	StudentGrades studentGrades;
+    StudentGrades studentGrades;
 
 	public void createStudent(String firstname, String lastname, String emailAddress){
 
@@ -192,10 +192,7 @@ public class StudentAndGradeService {
 		return false;
 	}
 
-	public Iterable<CollegeStudent> getGradebookInitial () {
-		Iterable<CollegeStudent> collegeStudents = studentDao.findAll();
-		return collegeStudents;
-	}
+
 	public Gradebook getGradebook () {
 
 		Iterable<CollegeStudent> collegeStudents = studentDao.findAll();
@@ -243,26 +240,4 @@ public class StudentAndGradeService {
 		return gradebook;
 	}
 
-	public void configureStudentInformationModel(int id, Model m) {
-
-		GradebookCollegeStudent studentEntity = studentInformation(id);
-
-		m.addAttribute("student", studentEntity);
-
-		if (studentEntity.getStudentGrades().getMathGradeResults().size() > 0) {
-			m.addAttribute("mathAverage", studentEntity.getStudentGrades().findGradePointAverage(studentEntity.getStudentGrades().getMathGradeResults()));
-		} else {
-			m.addAttribute("mathAverage", "N/A");
-		}
-		if (studentEntity.getStudentGrades().getScienceGradeResults().size() > 0) {
-			m.addAttribute("scienceAverage", studentEntity.getStudentGrades().findGradePointAverage(studentEntity.getStudentGrades().getScienceGradeResults()));
-		} else {
-			m.addAttribute("scienceAverage", "N/A");
-		}
-		if (studentEntity.getStudentGrades().getHistoryGradeResults().size() > 0) {
-			m.addAttribute("historyAverage", studentEntity.getStudentGrades().findGradePointAverage(studentEntity.getStudentGrades().getHistoryGradeResults()));
-		} else {
-			m.addAttribute("historyAverage", "N/A");
-		}
-	}
 }
