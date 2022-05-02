@@ -51,7 +51,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('sonarqube_local') {
                     withMaven(maven: 'maven') {
-                        sh 'mvn sonar:sonar -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
+                        sh 'mvn sonar:sonar -Dsonar.projectName=API-Testing -Dsonar.projectKey=com.api:junit -Dsonar.host.url=http://localhost:9000 -Dsonar.login=abe2ad51ccf354b1c96e453d6e3266df1b620d42'
                     }
                 }
             }
@@ -96,18 +96,18 @@ pipeline {
             }
         }
 
-        stage('InfluxDB Report') {
-            steps {
-                script {
-                    if (currentBuild.currentResult == 'UNSTABLE') {
-                        currentBuild.result = "UNSTABLE"
-                    } else {
-                        currentBuild.result = "SUCCESS"
-                    }
-                    step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'sonarqube_metrics'])
-                }
-            }
-        }
+//        stage('InfluxDB Report') {
+//            steps {
+//                script {
+//                    if (currentBuild.currentResult == 'UNSTABLE') {
+//                        currentBuild.result = "UNSTABLE"
+//                    } else {
+//                        currentBuild.result = "SUCCESS"
+//                    }
+//                    step([$class: 'InfluxDbPublisher', customData: null, customDataMap: null, customPrefix: null, target: 'sonarqube_metrics'])
+//                }
+//            }
+//        }
 
     }
 
