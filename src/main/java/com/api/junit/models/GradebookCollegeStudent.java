@@ -1,4 +1,4 @@
-package com.api.junit.two.models;
+package com.api.junit.models;
 
 public class GradebookCollegeStudent extends CollegeStudent{
 

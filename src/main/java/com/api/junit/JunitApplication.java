@@ -1,11 +1,16 @@
 package com.api.junit;
 
-import com.api.junit.two.models.*;
+import com.api.junit.models.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+
+import javax.sql.DataSource;
 
 @SpringBootApplication
 public class JunitApplication {
@@ -16,13 +21,13 @@ public class JunitApplication {
 
 	@Bean
 	@Scope(value = "prototype")
-    CollegeStudent getCollegeStudent() {
+	CollegeStudent getCollegeStudent() {
 		return new CollegeStudent();
 	}
 
 	@Bean
 	@Scope(value = "prototype")
-    Grade getMathGrade(double grade) {
+	Grade getMathGrade(double grade) {
 		return new MathGrade(grade);
 	}
 
@@ -36,14 +41,14 @@ public class JunitApplication {
 	@Bean
 	@Scope(value = "prototype")
 	@Qualifier("scienceGrades")
-    ScienceGrade getScienceGrade() {
+	ScienceGrade getScienceGrade() {
 		return new ScienceGrade();
 	}
 
 	@Bean
 	@Scope(value = "prototype")
 	@Qualifier("historyGrades")
-    HistoryGrade getHistoryGrade() {
+	HistoryGrade getHistoryGrade() {
 		return new HistoryGrade();
 	}
 

@@ -1,6 +1,6 @@
-package com.api.junit.two.repository;
+package com.api.junit.repository;
 
-import com.api.junit.two.models.CollegeStudent;
+import com.api.junit.models.CollegeStudent;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

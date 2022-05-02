@@ -1,4 +1,4 @@
-package com.api.junit.two.models;
+package com.api.junit.models;
 
 import javax.persistence.*;
 

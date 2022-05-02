@@ -1,11 +1,11 @@
-package com.api.junit.two.controller;
+package com.api.junit.controller;
 
-import com.api.junit.two.models.CollegeStudent;
-import com.api.junit.two.repository.HistoryGradesDao;
-import com.api.junit.two.repository.MathGradesDao;
-import com.api.junit.two.repository.ScienceGradesDao;
-import com.api.junit.two.repository.StudentDao;
-import com.api.junit.two.service.StudentAndGradeService;
+import com.api.junit.models.CollegeStudent;
+import com.api.junit.repository.HistoryGradesDao;
+import com.api.junit.repository.MathGradesDao;
+import com.api.junit.repository.ScienceGradesDao;
+import com.api.junit.repository.StudentDao;
+import com.api.junit.service.StudentAndGradeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,7 +21,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,16 +1,15 @@
-package com.api.junit.two.service;
+package com.api.junit.service;
 
-import com.api.junit.two.models.*;
-import com.api.junit.two.repository.HistoryGradesDao;
-import com.api.junit.two.repository.MathGradesDao;
-import com.api.junit.two.repository.ScienceGradesDao;
-import com.api.junit.two.repository.StudentDao;
+import com.api.junit.models.*;
+import com.api.junit.repository.HistoryGradesDao;
+import com.api.junit.repository.MathGradesDao;
+import com.api.junit.repository.ScienceGradesDao;
+import com.api.junit.repository.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;

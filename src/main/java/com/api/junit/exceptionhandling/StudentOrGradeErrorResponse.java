@@ -1,4 +1,4 @@
-package com.api.junit.two.exceptionhandling;
+package com.api.junit.exceptionhandling;
 
 public class StudentOrGradeErrorResponse {
 

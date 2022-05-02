@@ -1,10 +1,10 @@
-package com.api.junit.two.models;
+package com.api.junit.models;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "math_grade")
-public class MathGrade implements Grade {
+@Table(name = "history_grade")
+public class HistoryGrade implements Grade {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
@@ -13,11 +13,11 @@ public class MathGrade implements Grade {
     @Column(name="grade")
     private double grade;
 
-    public MathGrade() {
+    public HistoryGrade() {
 
     }
 
-    public MathGrade(double grade) {
+    public HistoryGrade(double grade) {
         this.grade = grade;
     }
 

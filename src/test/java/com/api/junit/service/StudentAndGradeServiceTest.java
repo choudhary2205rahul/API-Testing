@@ -1,11 +1,10 @@
-package com.api.junit.two.service;
+package com.api.junit.service;
 
-import com.api.junit.two.models.*;
-import com.api.junit.two.repository.HistoryGradesDao;
-import com.api.junit.two.repository.MathGradesDao;
-import com.api.junit.two.repository.ScienceGradesDao;
-import com.api.junit.two.repository.StudentDao;
-import com.api.junit.two.service.StudentAndGradeService;
+import com.api.junit.models.*;
+import com.api.junit.repository.HistoryGradesDao;
+import com.api.junit.repository.MathGradesDao;
+import com.api.junit.repository.ScienceGradesDao;
+import com.api.junit.repository.StudentDao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

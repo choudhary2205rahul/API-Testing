@@ -1,15 +1,14 @@
-package com.api.junit.two.controller;
+package com.api.junit.controller;
 
-import com.api.junit.two.exceptionhandling.StudentOrGradeErrorResponse;
-import com.api.junit.two.exceptionhandling.StudentOrGradeNotFoundException;
-import com.api.junit.two.models.CollegeStudent;
-import com.api.junit.two.models.Gradebook;
-import com.api.junit.two.models.GradebookCollegeStudent;
-import com.api.junit.two.service.StudentAndGradeService;
+import com.api.junit.exceptionhandling.StudentOrGradeErrorResponse;
+import com.api.junit.exceptionhandling.StudentOrGradeNotFoundException;
+import com.api.junit.models.CollegeStudent;
+import com.api.junit.models.Gradebook;
+import com.api.junit.models.GradebookCollegeStudent;
+import com.api.junit.service.StudentAndGradeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
