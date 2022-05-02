@@ -22,4 +22,6 @@
 <ul>
     <li>Integrate Karate & Gatling</li>
     <li>Docker Image & Push to Artifactory</li>
+    <li>Docker Image Scan</li>
+    <li>AWS</li>
 </ul>
