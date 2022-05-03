@@ -6,6 +6,7 @@ import com.api.junit.models.CollegeStudent;
 import com.api.junit.models.Gradebook;
 import com.api.junit.models.GradebookCollegeStudent;
 import com.api.junit.service.StudentAndGradeService;
+import io.opentracing.Span;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

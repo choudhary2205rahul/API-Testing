@@ -1,16 +1,15 @@
 package com.api.junit;
 
 import com.api.junit.models.*;
+import com.api.junit.util.ObservabilityUtil;
+import io.jaegertracing.Configuration;
+import io.jaegertracing.internal.JaegerTracer;
+import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
-
-import javax.sql.DataSource;
 
 @SpringBootApplication
 public class JunitApplication {
