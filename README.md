@@ -68,7 +68,11 @@
     
     
     Resources: Resource is used to identify the source of the telemetry data, whether a machine, container, or function.
-               This information can be used at the time of analysis to correlate different events occurring in the same resource.
-               Resource attributes are added to the telemetry data from signals at the export time before the data is emitted to a backend.
+               This information can be used at the time of analysis to correlate different events 
+               occurring in the same resource.
+               Resource attributes are added to the telemetry data from signals at the export time before 
+               the data is emitted to a backend. example : host.name, service.name
+    
+    OpenTelemetry Java agent injects the instrumentation code at runtime.
     
 </p>
