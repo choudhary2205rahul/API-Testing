@@ -1,6 +1,8 @@
 package com.api.junit.one.tdd;
 
+import com.api.junit.TestResultLoggerExtension;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -9,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@ExtendWith(TestResultLoggerExtension.class)
 public class FizzBuzzTest {
 
     @Test

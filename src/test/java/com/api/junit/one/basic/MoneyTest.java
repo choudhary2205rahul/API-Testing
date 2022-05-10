@@ -1,9 +1,12 @@
 package com.api.junit.one.basic;
 
+import com.api.junit.TestResultLoggerExtension;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(TestResultLoggerExtension.class)
 class MoneyTest {
 
     Money five;

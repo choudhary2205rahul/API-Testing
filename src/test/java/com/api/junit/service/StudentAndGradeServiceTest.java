@@ -1,13 +1,18 @@
 package com.api.junit.service;
 
+import com.api.junit.TestResultLoggerExtension;
 import com.api.junit.models.*;
 import com.api.junit.repository.HistoryGradesDao;
 import com.api.junit.repository.MathGradesDao;
 import com.api.junit.repository.ScienceGradesDao;
 import com.api.junit.repository.StudentDao;
+import com.api.junit.util.ObservabilityUtil;
+import io.opentracing.Span;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @TestPropertySource("/application-test.properties")
+@ExtendWith(TestResultLoggerExtension.class)
 class StudentAndGradeServiceTest {
 
     @Autowired

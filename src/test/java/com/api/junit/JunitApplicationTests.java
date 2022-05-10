@@ -5,7 +5,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = JunitApplication.class)
 class JunitApplicationTests {
-
 	@Test
 	void contextLoads() {
 	}

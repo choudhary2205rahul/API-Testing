@@ -1,15 +1,13 @@
-package com.swisscom.observability.api;
+package com.api.junit.controller;
 
-import com.swisscom.observability.model.Genderize;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.Arrays;
 
 @RestController
 @RequestMapping("/employees-details")
@@ -17,15 +15,26 @@ import java.util.Arrays;
 public class DetailApi {
     private RestTemplate restTemplate;
 
-    public DetailApi(RestTemplate restTemplate) {
+    private Counter counter;
+
+
+    public DetailApi(RestTemplate restTemplate, MeterRegistry meterRegistry ) {
         this.restTemplate = restTemplate;
+        this.counter = Counter.builder("hit_counter")
+                .description("Number of hits")
+                .register(meterRegistry);
     }
 
     @GetMapping
-    public String getEmployeeDetail() {
+    public ResponseEntity<String> getEmployeeDetail() {
         log.info("EmployeeApi : getEmployeeDetail() : return Swisscom is employer of Rahul Choudhary");
+        String employeeName = restTemplate.getForObject("http://localhost:1500/employees", String.class);
+        String employerName = restTemplate.getForObject("http://localhost:1500/employer", String.class);
 
-        ResponseEntity<Genderize> employerName = restTemplate.getForEntity("https://api.genderize.io/?name=Rahul", Genderize.class);
-        return employerName.getBody().getName();
+        counter.increment();
+
+        return ResponseEntity.ok(employerName + " is employer of " + employeeName);
+//        ResponseEntity<Genderize> employerName = restTemplate.getForEntity("https://api.genderize.io/?name=Rahul", Genderize.class);
+//        return employerName.getBody().getName();
     }
 }

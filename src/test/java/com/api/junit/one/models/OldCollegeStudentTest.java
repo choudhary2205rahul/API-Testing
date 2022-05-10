@@ -1,9 +1,11 @@
 package com.api.junit.one.models;
 
 import com.api.junit.JunitApplication;
+import com.api.junit.TestResultLoggerExtension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +17,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = JunitApplication.class)
+@ExtendWith(TestResultLoggerExtension.class)
 class OldCollegeStudentTest {
 
     private static int count = 0;

@@ -4,12 +4,14 @@ import io.jaegertracing.Configuration;
 import io.jaegertracing.internal.JaegerTracer;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public final class ObservabilityUtil {
 
     private ObservabilityUtil() {}
 
-    public static JaegerTracer initTracer(String service) {
+    public static JaegerTracer initTracer() {
+
         Configuration.SamplerConfiguration samplerConfiguration = Configuration.SamplerConfiguration
                 .fromEnv()
                 .withType("const")
@@ -19,8 +21,12 @@ public final class ObservabilityUtil {
                 .fromEnv()
                 .withLogSpans(true);
 
-        Configuration configuration = new Configuration(service).withSampler(samplerConfiguration).withReporter(reporterConfiguration);
+        Configuration configuration = new Configuration("API-Testing")
+                .withSampler(samplerConfiguration)
+                .withReporter(reporterConfiguration);
 
         return configuration.getTracer();
     }
+
+
 }

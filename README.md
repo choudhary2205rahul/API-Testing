@@ -25,3 +25,11 @@
     <li>Docker Image Scan</li>
     <li>AWS</li>
 </ul>
+
+
+Opentracing (Tracing) && OpenCencus (Metrics)
+Open Telemetry -> Opentracing (Tracing) + OpenCencus (Metrics)
+
+
+
+Spring Boot APP + opentracing-spring-jaeger-web-starter -> all-in-one -> db -> UI

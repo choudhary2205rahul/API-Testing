@@ -1,15 +1,13 @@
 package com.api.junit;
 
 import com.api.junit.models.*;
-import com.api.junit.util.ObservabilityUtil;
-import io.jaegertracing.Configuration;
-import io.jaegertracing.internal.JaegerTracer;
-import io.opentracing.Tracer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class JunitApplication {
@@ -49,6 +47,11 @@ public class JunitApplication {
 	@Qualifier("historyGrades")
 	HistoryGrade getHistoryGrade() {
 		return new HistoryGrade();
+	}
+
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
 	}
 
 }

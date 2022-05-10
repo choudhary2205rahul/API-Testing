@@ -1,15 +1,18 @@
 package com.api.junit.one.basic;
 
+import com.api.junit.TestResultLoggerExtension;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(TestResultLoggerExtension.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;

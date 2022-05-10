@@ -1,12 +1,14 @@
 package com.api.junit.one.component.service;
 
 import com.api.junit.JunitApplication;
+import com.api.junit.TestResultLoggerExtension;
 import com.api.junit.one.component.dao.ApplicationDao;
 import com.api.junit.one.component.models.ComponentCollegeStudent;
 import com.api.junit.one.component.models.ComponentStudentGrades;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -15,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = JunitApplication.class)
+@ExtendWith(TestResultLoggerExtension.class)
 class ApplicationServiceTest {
 
     // Using Mockito Mock
