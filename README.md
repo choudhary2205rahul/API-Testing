@@ -34,5 +34,20 @@
     Signals : tracing, logging, metrics, baggage
     
     Data Models: The data model defines the representation of the components that form a specific signal.
-                 It provides the specifics of what fields each component must have and describes how all the components interact with one another.
+    It provides the specifics of what fields each component must have and describes how all the components interact with one another.
+    
+    A user who instruments their code by using the API and does not configure the SDK will not see any telemetry produced by design.
+    
+    SDK: It implements the underlying system that generates, aggregates, and transmits telemetry data.
+    The SDK provides the controls to configure how telemetry should be collected, where it should be transmitted, and how.
+    
+    To be useful, the telemetry data captured by each signal must eventually be exported to a data store, where storage and analysis can occur. 
+    To accomplish this, each signal implementation offers a series of mechanisms to generate, process, and transmit/export telemetry.
+    
+    Pipeline: 
+    
+        Provider: A provider is a configurable factory that is used to give application code access to an entity used to generate telemetry data.
+        Generator: To generate telemetry data, Generators are named differently depending on the signal: 
+                    the tracing signal calls this a tracer, the metrics signal a meter.
+    
 </p>
