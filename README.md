@@ -51,11 +51,24 @@
     To accomplish this, each signal implementation offers a series of
     mechanisms to generate, process, and transmit/export telemetry.
     
-    Pipeline: 
+    Pipeline: The pipeline allows telemetry data to be produced and emitted
     
         Provider: A provider is a configurable factory that is used to give application code 
                   access to an entity used to generate telemetry data.
         Generator: To generate telemetry data, Generators are named differently depending on the signal: 
-                    the tracing signal calls this a tracer, the metrics signal a meter.
+                   the tracing signal calls this a tracer, the metrics signal a meter.
+        Processor: Once the telemetry data has been generated, processors provide the ability to 
+                   further modify the contents of the data.
+                   Processors may determine the frequency at which data should be processed or how the data 
+                   should be exported.
+        Exporters: The last step before telemetry leaves the context of an application is to go through the exporter.
+                   The job of the exporter is to translate the internal data model of OpenTelemetry into the format 
+                   that best matches the configured exporter's understanding. Some formats are : OpenTelemetry protocol,
+                   Console, Jaeger, Zipkin, Prometheus, OpenCensus.
+    
+    
+    Resources: Resource is used to identify the source of the telemetry data, whether a machine, container, or function.
+               This information can be used at the time of analysis to correlate different events occurring in the same resource.
+               Resource attributes are added to the telemetry data from signals at the export time before the data is emitted to a backend.
     
 </p>
