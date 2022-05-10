@@ -25,3 +25,14 @@
     <li>Docker Image Scan</li>
     <li>AWS</li>
 </ul>
+
+
+## Open Telemetry
+<p>
+    In early 2019, the OpenTelemetry project was announced as a merger of two existing open source projects: OpenTracing and OpenCensus.
+    
+    Signals : tracing, logging, metrics, baggage
+    
+    Data Models: The data model defines the representation of the components that form a specific signal.
+                 It provides the specifics of what fields each component must have and describes how all the components interact with one another.
+</p>
